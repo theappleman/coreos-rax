@@ -12,9 +12,10 @@ def ssh(name):
 
 def setup_host():
   run('apt-get -y install parted')
+  run('apt-get -y install bzip2')
 
 def fetch_image(image_loc):
-  run('curl %s | gunzip > /tmp/coreos.bin' % (image_loc))
+  run('curl %s | bunzip2 > /tmp/coreos.bin' % (image_loc))
 
 def burn_image():
   run('dd if=/tmp/coreos.bin of=/dev/xvdb bs=128M')
