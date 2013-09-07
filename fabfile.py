@@ -36,7 +36,7 @@ def setup_grub():
 
 def setup_networking():
   run('mkdir -p /mnt/root')
-  run('mount /dev/xvdb4 /mnt/root')
+  run('mount /dev/xvdb3 /mnt/root')
 
   ip = run('ifconfig eth0 |grep "inet "|awk \'{print $2}\'|awk -F":" \'{print $2}\'')
   netmask = run('ifconfig eth0 |grep "inet "|awk \'{print $4}\'|awk -F":" \'{print $2}\'')
